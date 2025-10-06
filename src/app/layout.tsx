@@ -3,6 +3,7 @@ import './globals.css'
 import { AppProviders } from '@/components/app-providers'
 import { AppLayout } from '@/components/app-layout'
 import React from 'react'
+import AmmLayout from '@/components/AmmLayout'
 
 export const metadata: Metadata = {
   title: 'Solana AMM - Automated Market Maker',
@@ -11,7 +12,6 @@ export const metadata: Metadata = {
 
 const links: { label: string; path: string }[] = [
   { label: 'Home', path: '/' },
-  { label: 'AMM', path: '/amm' },
   { label: 'Account', path: '/account' },
 ]
 
@@ -20,7 +20,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" suppressHydrationWarning>
       <body className={`antialiased`}>
         <AppProviders>
-          <AppLayout links={links}>{children}</AppLayout>
+          <AppLayout links={links}>
+            <AmmLayout >
+              {children}
+            </AmmLayout>
+          </AppLayout>
         </AppProviders>
       </body>
     </html>
